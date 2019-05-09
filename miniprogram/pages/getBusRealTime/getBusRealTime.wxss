@@ -1,0 +1,48 @@
+.titlebox{
+  margin: 10px 25px auto;
+  border-bottom: 1px solid #c3c3c3;
+  padding-bottom: 10px;
+}
+.title {
+  font-size: x-larger;
+}
+.cimagebox {
+  margin: 0px 15px 0px 0px;
+  width: 35px;
+  height: 30px;
+  float: right;
+}
+.busInfo {
+  font-size: xx-small;
+  color: gray;
+  font-family: Tahoma;
+}
+.stationbox {
+  margin: 5px 25px 5px 25px;
+  height: 50px;
+}
+.stationname {
+  float: left;
+  text-align: left;
+}
+.imagebox {
+  margin-right: 5px;
+  width: 30px;
+  height: 40px;
+  float: right;
+}
+.messagebox {
+  font-size: xx-small;
+  margin-top: 7px;
+  float: right;
+  color: #48A2E9;
+}
+.error {
+  margin-top: 200px;
+  text-align: center;
+}
+.errormsg {
+  color: red;
+  font-size: xx-larger;
+  margin-top: 20px;
+}

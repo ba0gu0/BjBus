@@ -1,0 +1,64 @@
+/**index.wxss**/
+.UserMessage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+
+.userinfo-nickname {
+  color: gray;
+}
+
+.getLocationBus {
+  width: 200px;
+  margin: 20rpx;
+}
+
+.searchMessage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 180px;
+}
+.busHistory {
+  display: block;
+  width: 200px;
+  margin-top: 5px;
+}
+
+.busLine{
+  font-size: 5px;
+  margin-right: 5px;
+}
+.clearbox{
+  float: right;
+  margin: 3px 10px 0px 0px;
+}
+
+.searchBus {
+  width: 200px;
+  margin: 20rpx;
+}
+
+.errormsg {
+  color: red;
+  margin-top: 20px;
+  font-size: x-small;
+}
+.openSetting {
+  width: 100px;
+  font-size: x-small;
+  margin: 20rpx;
+}
+.errorLocationMsg {
+  color: gray;
+  margin-top: px;
+  font-size: x-small;
+}

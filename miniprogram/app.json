@@ -1,0 +1,21 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/getLocationBus/getLocationBus",
+    "pages/searchBus/searchBus",
+    "pages/getBusMessage/getBusMessage",
+    "pages/getBusMap/getBusMap",
+    "pages/getBusRealTime/getBusRealTime"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "北京实时公交查询",
+    "navigationBarTextStyle":"black"
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "根据你的位置信息获取周围的公交站点"
+    }
+  }
+}

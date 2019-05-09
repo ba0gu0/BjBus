@@ -1,0 +1,24 @@
+<view wx:if="{{ busLineList }}">
+  <view wx:for="{{ busLineList }}" wx:for-item="bus" wx:key="">
+    <view class="text_box">
+      <text >{{ bus.name }}</text>
+      <view class='time_box'>
+        <text class='busInfo'>首末班车时间:{{ bus.start_time }}-{{ bus.end_time }};</text >
+        <text class='busInfo'>单程最高票价:{{ bus.total_price }}元</text >
+      </view>
+    </view>
+    <!-- <view style="margin:10px 25px">
+      <button wx:for="{{ bus.busstops }}" wx:for-item="station" wx:key="" size='mini' plain='true' disabled='true' class='busLine'>{{ station.name }}</button>
+    </view> -->
+    <button bindtap='bindViewGetBusMap' data-locationStationXy="{{ bus.locationStationXy }}" data-locationPolyLine="{{ bus.polyline }}" data-busLineNmae="{{ bus.name }}" class='busclick' type='primary' size='mini' plain='true'>查看车辆路线地图</button>
+    <button bindtap='bindViewGetBusRealTime' data-busStartStop="{{ bus.start_stop }}" data-busEndStop="{{ bus.end_stop }}" class='busclick' type='warn' size='mini' plain='true'>获取实时车辆信息</button>
+  </view>
+</view>
+<view wx:else class='error'>
+  <view>
+    <icon type="warn" size="200" color="red"></icon>
+  </view>
+  <view>  
+    <text class='errormsg'>无法查询到线路!</text>
+  </view>
+</view>

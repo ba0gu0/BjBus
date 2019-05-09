@@ -1,0 +1,10 @@
+.text {
+  margin: 20px 5px 10px 5px;
+  text-align: center;
+  font-size: larger;
+}
+.map {
+  margin-top: 10px;
+  height: 650px;
+  width: 100%;
+}

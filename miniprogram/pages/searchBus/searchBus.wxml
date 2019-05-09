@@ -1,0 +1,6 @@
+<view class="section">
+  <input bindinput="bindViewInput" placeholder="搜索路线" focus="true" />
+</view>
+<view class="text_box" wx:for="{{stationData}}" wx:key="" wx:for-item="station">
+  <text bindtap="bindViewSearch" data-keywords="{{station.name}}">{{station.name}}</text>
+</view>

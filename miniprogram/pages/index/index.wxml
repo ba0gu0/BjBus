@@ -1,0 +1,31 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="UserMessage">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="bindViewGetUserInfo" bindtap="bindViewGetLocation"> 授权获取头像以及定位信息 </button>
+    <block wx:else>
+      <image bindtap='bindViewGetLocation' class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+    <block wx:if="{{ errorMsgUserInfo }}">
+      <text class='errormsg'>{{ errorMsgUserInfo }}</text>
+    </block>    
+    <block wx:if="{{ errorMsgUserLocation }}">
+      <text class='errormsg'>{{ errorMsgUserLocation }}</text>
+      <button class="openSetting" open-type='openSetting'>点击开启</button>
+    </block>
+  </view>
+  <view class="searchMessage">
+    <block wx:if="{{ lineNmaes }}">
+      <text class='busHistory'>搜索历史记录:</text>
+    </block>
+    <view class="busHistory">
+      <button wx:for="{{ lineNmaes }}" wx:for-item="line" wx:key="line" size='mini' plain='true' class='busLine' data-startstop='{{ line.startStop }}' data-endstop='{{ line.endStop }}' bindtap='bindViewHistory'>{{ line.shortLineName }}</button>
+      <icon wx:if="{{ lineNmaes.length > 0 }}" bindtap='bindViewClearHistory' class='clearbox' type='cancel' color='gray'></icon>
+    </view>
+    <button plain='true' class='searchBus' bindtap="bindViewSearchBus">搜索公交路线</button>
+    <button plain='true' class="getLocationBus" bindtap="bindViewGetLocationBus" disabled="{{ !hasUserLocation }}">获取周围公交站点</button>
+    <block wx:if="{{ hasUserInfo}}">
+      <text class='errorLocationMsg'>点击头像可以更新位置信息</text>
+    </block>
+  </view>
+</view>

@@ -1,0 +1,33 @@
+.text_box{
+  margin: 5px 25px auto;
+  border-bottom: 1px solid #c3c3c3;
+  padding-bottom: 10px;
+}
+.time_box{
+  display: flex;
+  flex-wrap: wrap;
+}
+.busInfo {
+  font-size: xx-small;
+  color: gray;
+  font-family: Tahoma;
+}
+.busLine{
+  margin-right: 5px;
+  font-size: xx-small;
+}
+.busclick {
+  margin: 5px 0px 5px 25px
+}
+page{
+   height:100%;
+}
+.error {
+  margin-top: 200px;
+  text-align: center;
+}
+.errormsg {
+  color: red;
+  font-size: xx-larger;
+  margin-top: 20px;
+}

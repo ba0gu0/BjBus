@@ -1,0 +1,18 @@
+<view wx:if="{{ textData }}">
+  <view wx:for="{{ textData }}" wx:for-item="pois" wx:key="">
+    <view class="text_box">
+      <text >{{ pois.name }}</text>
+    </view>
+    <view style="margin:10px 25px">
+      <button wx:for="{{ pois.address }}" wx:for-item="address" wx:key="" size='mini' plain='true' class='busLine' bindtap='bindViewGetBus' data-keywords="{{ address }}">{{ address }}</button>
+    </view>
+  </view>
+</view>
+<view wx:else class='error'>
+  <view>
+    <icon type="warn" size="200" color="red"></icon>
+  </view>
+  <view>  
+    <text class='errormsg'>无法查询到周围的公交站点!</text>
+  </view>
+</view>
