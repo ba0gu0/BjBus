@@ -132,6 +132,7 @@ Page({
   bindViewHistory: function (event){
     app.globalData.busStartStop = event.target.dataset.startstop
     app.globalData.busEndStop = event.target.dataset.endstop
+    app.globalData.busMidStop = event.target.dataset.midstop
     app.globalData.busLineNmae = event.target.dataset.linenmae;
     wx.navigateTo({
       url: '/pages/getBusRealTime/getBusRealTime'

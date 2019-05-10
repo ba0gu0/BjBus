@@ -19,7 +19,7 @@
       <text class='busHistory'>搜索历史记录:</text>
     </block>
     <view class="busHistory">
-      <button wx:for="{{ lineNmaes }}" wx:for-item="line" wx:key="line" size='mini' plain='true' class='busLine' data-startstop='{{ line.startStop }}' data-endstop='{{ line.endStop }}' bindtap='bindViewHistory'>{{ line.shortLineName }}</button>
+      <button wx:for="{{ lineNmaes }}" wx:for-item="line" wx:key="line" size='mini' plain='true' class='busLine' data-startstop='{{ line.startStop }}' data-endstop='{{ line.endStop }}' data-midstop='{{ line.midStop }}' bindtap='bindViewHistory'>{{ line.shortLineName }}</button>
       <icon wx:if="{{ lineNmaes.length > 0 }}" bindtap='bindViewClearHistory' class='clearbox' type='cancel' color='gray'></icon>
     </view>
     <button plain='true' class='searchBus' bindtap="bindViewSearchBus">搜索公交路线</button>

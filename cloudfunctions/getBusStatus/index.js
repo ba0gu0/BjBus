@@ -8,11 +8,11 @@ const db = cloud.database()
 // 云函数入口函数
 exports.main = async (event, context) => {
   const wxContext = cloud.getWXContext()
-  // console.log(event['StartStation'], event['EndStation'])
   try {
     return await db.collection('Doc_BjBusMsg').where({
       "StartStation": event['StartStation'],
-      "EndStation": event['EndStation']
+      "EndStation": event['EndStation'],
+      "MidStation": event['MidStation']
     }).get()
   } catch (e) {
     console.error(e)

@@ -8,7 +8,6 @@ exports.main = async (event, context) => {
   const wxContext = cloud.getWXContext()
 
   var userInfo = event['userInfo']
-  console.log(event, context)
   try {
     return await db.collection('Doc_UserInfo').add({
       data: {

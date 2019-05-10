@@ -11,7 +11,7 @@
       <button wx:for="{{ bus.busstops }}" wx:for-item="station" wx:key="" size='mini' plain='true' disabled='true' class='busLine'>{{ station.name }}</button>
     </view> -->
     <button bindtap='bindViewGetBusMap' data-locationStationXy="{{ bus.locationStationXy }}" data-locationPolyLine="{{ bus.polyline }}" data-busLineNmae="{{ bus.name }}" class='busclick' type='primary' size='mini' plain='true'>查看车辆路线地图</button>
-    <button bindtap='bindViewGetBusRealTime' data-busStartStop="{{ bus.start_stop }}" data-busEndStop="{{ bus.end_stop }}" class='busclick' type='warn' size='mini' plain='true'>获取实时车辆信息</button>
+    <button bindtap='bindViewGetBusRealTime' data-busstartstop="{{ bus.start_stop }}" data-busendstop="{{ bus.end_stop }}" data-busmidstop='{{ bus.mid_stop }}' class='busclick' type='warn' size='mini' plain='true'>获取实时车辆信息</button>
   </view>
 </view>
 <view wx:else class='error'>

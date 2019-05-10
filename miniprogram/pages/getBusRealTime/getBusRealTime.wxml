@@ -6,13 +6,13 @@
       <text class='busInfo'>首末班车时间: {{ busStationData.Times }}</text >
     </view>
   </view>
-  <view class='stationbox' wx:for="{{ busStationData.Stations }}" wx:for-item="station" wx:for-index="ststionValue" wx:key="" bindtap='bindGetRealStation'>
-    <button wx:if="{{ ststionValue == realTimeStation }}" data-linevalue="{{ busStationData.LineValue }}" data-ststionvalue="{{ ststionValue }}" plain='true' type="primary" >
+  <view class='stationbox' wx:for="{{ busStationData.Stations }}" wx:for-item="station" wx:for-index="ststionValue" wx:key="" bindtap='bindViewGetRealStation'>
+    <button wx:if="{{ ststionValue == realTimeStation }}" data-linevalue="{{ busStationData.Value }}" data-ststionvalue="{{ ststionValue }}" plain='true' type="primary">
       <text class='stationname'>{{ station }}</text>
       <text wx:if="{{ busRealTime.rTips }}" class='messagebox'>{{ busRealTime.rTips }}</text>
       <text wx:else class='messagebox'>{{ busRealTime.busTime }} {{ busRealTime.busTimeType }}; {{ busRealTime.busSNum }} / {{ busRealTime.busDis }};</text>
     </button>
-    <button wx:else data-linevalue="{{ busStationData.LineValue }}" data-ststionvalue="{{ ststionValue }}" plain='true' type="default">
+    <button wx:else data-linevalue="{{ busStationData.Value }}" data-ststionvalue="{{ ststionValue }}" plain='true' type="default">
       <text class='stationname'>{{ station }} {{ onStation.indexOf(ststionValue) }}</text>
       <image wx:for="{{ onStation }}" wx:for-item="onStationValue" wx:key="" wx:if="{{ onStationValue == ststionValue }}" class='imagebox' src="/img/bus.svg" mode="aspectFit"></image>
     </button>

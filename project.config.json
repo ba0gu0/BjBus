@@ -9,7 +9,7 @@
 		"newFeature": true,
 		"autoAudits": false
 	},
-	"appid": "小程序appid",
+	"appid": "微信小程序appid",
 	"projectname": "BjBus",
 	"libVersion": "2.6.6",
 	"condition": {

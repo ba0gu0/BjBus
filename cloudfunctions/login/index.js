@@ -15,13 +15,11 @@ const db = cloud.database()
  * 
  */
 exports.main = async (event, context) => {
-  // console.log(event)
   // 可执行其他自定义逻辑
   // console.log 的内容可以在云开发云函数调用日志查看
 
   // 获取 WX Context (微信调用上下文)，包括 OPENID、APPID、及 UNIONID（需满足 UNIONID 获取条件）
   const wxContext = cloud.getWXContext()
-  // console.log(wxContext)
   try {
     return await db.collection('Doc_UserInfo').where({
       _id: wxContext.OPENID

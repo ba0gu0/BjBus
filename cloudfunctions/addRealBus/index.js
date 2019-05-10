@@ -8,7 +8,6 @@ const db = cloud.database()
 exports.main = async (event, context) => {
   const wxContext = cloud.getWXContext()
   var realBus = event['busData']
-  console.log(realBus)
   try {
     return await db.collection('Doc_UserHistory').add({
       data: {
@@ -18,6 +17,7 @@ exports.main = async (event, context) => {
         startStop: realBus['startStop'],
         shortLineName: realBus['shortLineName'],
         endStop: realBus['endStop'],
+        midStop: realBus['midStop'],
         lineName: realBus['lineName']
       }
     })

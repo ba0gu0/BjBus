@@ -45,6 +45,7 @@ Page({
 
       }
       buslines[i].locationStationXy = tempStations;
+      buslines[i].mid_stop = stations[parseInt(stations.length / 2)].name;
       var polylines = tempBus.polyline.split(';');
       for (var k = 0; k < polylines.length; k++){
         var tempLocationSplit = polylines[k].split(',');
@@ -67,7 +68,7 @@ Page({
       var keywords = app.globalData.searchKeyWords;
     }
     var key = config_amap.Config.key;
-    var url = 'https://restapi.amap.com/v3/bus/linename?s=rsv3&city=010&citylimit=true&extensions=all&output=json&city=010&key=' + key + '&keywords=' + keywords;
+    var url = 'https://restapi.amap.com/v3/bus/linename?s=rsv3&city=010&citylimit=true&extensions=all&output=json&city=010&offset=2&key=' + key + '&keywords=' + keywords;
     wx.request({
       url: url,
       success: res => {
@@ -97,6 +98,7 @@ Page({
   bindViewGetBusRealTime: function (event) {
     app.globalData.busStartStop = event.target.dataset.busstartstop;
     app.globalData.busEndStop = event.target.dataset.busendstop;
+    app.globalData.busMidStop = event.target.dataset.busmidstop;
     wx.navigateTo({
       url: '/pages/getBusRealTime/getBusRealTime'
     })

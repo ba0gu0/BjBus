@@ -2,28 +2,28 @@
 // 获取应用实例
 
 const app = getApp()
-
+if (!wx.cloud) {
+  console.error('请使用 2.2.3 或以上的基础库以使用云能力;');
+} else {
+  wx.cloud.init({
+    traceUser: true,
+  })
+}
 Page({
   data: {
     busStationData: {},
     onStation: [],
     busRealTime: {},
-    realTimeStation: 3
+    realTimeStation: 3,
   },
-  getDbStation: function (startStation, endStation) {
+  getDbStation: function (startStation, endStation, midStation) {
     return new Promise((resolve, reject) => {
-      if (!wx.cloud) {
-        console.error('请使用 2.2.3 或以上的基础库以使用云能力;');
-      } else {
-        wx.cloud.init({
-          traceUser: true,
-        })
-      }
       wx.cloud.callFunction({
         name: 'getBusStatus',
         data: {
           "StartStation": startStation,
-          "EndStation": endStation
+          "EndStation": endStation,
+          "MidStation": midStation
         },
         success: res => {
           resolve(res.result.data)
@@ -49,13 +49,6 @@ Page({
     return busLists
   },
   addRealBus: function (busData){
-    if (!wx.cloud) {
-      console.error('请使用 2.2.3 或以上的基础库以使用云能力')
-    } else {
-      wx.cloud.init({
-        traceUser: true,
-      })
-    }
     wx.cloud.callFunction({
       name: 'addRealBus',
       data: {
@@ -73,13 +66,14 @@ Page({
     if (app.globalData.busStartStop && app.globalData.busEndStop) {
       var busStartStop = app.globalData.busStartStop;
       var busEndStop = app.globalData.busEndStop;
+      var busMidStop = app.globalData.busMidStop;
     }
-    this.getDbStation(busStartStop, busEndStop).then(res => {
+    this.getDbStation(busStartStop, busEndStop, busMidStop).then(res => {
       if(res.length > 0){
         this.setData({
-          busStationData: res[0]
+          busStationData: res[0],
         })
-        this.getRealStation(res[0].LineValue, '3').then(res => {
+        this.getRealStation(res[0].Value, '3').then(res => {
           if (res.data.status == 'ok') {
             onStation = this.getOnStation(res.data.data.busList)
             this.setData({
@@ -99,7 +93,8 @@ Page({
           "lineName": busLineNmae,
           "shortLineName": shortLineName,
           "startStop": busStartStop,
-          "endStop": busEndStop
+          "endStop": busEndStop,
+          "midStop": busMidStop
         })
       }else{
         this.setData({
@@ -109,7 +104,7 @@ Page({
     });
     // console.log(this.data)
   },
-  bindGetRealStation: function (event){
+  bindViewGetRealStation: function (event){
     var ststionValue =  event.target.dataset.ststionvalue;
     var lineValue = event.target.dataset.linevalue;
     this.getRealStation(lineValue, ststionValue).then(res => {
@@ -134,6 +129,7 @@ Page({
   bindViewChangeLine: function (event) {
     app.globalData.busStartStop = event.target.dataset.startstop;
     app.globalData.busEndStop = event.target.dataset.endstop;
+    app.globalData.busMidStop = null;
     wx.redirectTo({
       url: '/pages/getBusRealTime/getBusRealTime'
     })
